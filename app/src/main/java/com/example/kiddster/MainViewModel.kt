@@ -1,6 +1,7 @@
 package com.example.kiddster
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.launch
 import java.io.IOException
@@ -33,6 +34,7 @@ class MainViewModel(application: Application) : ViewModel() {
                 // Show a Toast error message and hide the progress bar.
                 if(jokes_list.value.isNullOrEmpty())
                     _eventNetworkError.value = true
+                Log.d("mane", "Jokes list not available")
             }
         }
     }

@@ -1,7 +1,9 @@
 package com.example.kiddster
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.example.kiddster.Network.Joke
 import com.example.kiddster.Network.KiddsterApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -22,13 +24,17 @@ class MainRepository {
         _response.value = "Jokes list!"
 
         KiddsterApi.retrofitService.getJokes().enqueue(
-            object: Callback<String> {
-                override fun onResponse(call: Call<String>, response: Response<String>) {
-                    _response.value = response.body()
+            object: Callback<List<Joke>>{
+                override fun onResponse(call: Call<List<Joke>>,
+                                        response: Response<List<Joke>>) {
+//                    _response.value = response.body()
+                    _response.value = "${response.body()?.get(0)?.desc?.replace("\\n", (System.getProperty("line.separator") + "\n"))}"
+                    _response.value?.let { Log.d("mane", it) }
                 }
 
-                override fun onFailure(call: Call<String>, t: Throwable) {
+                override fun onFailure(call: Call<List<Joke>>, t: Throwable) {
                     _response.value = "Failure: " + t.message
+                    _response.value?.let { Log.d("mane", it) }
                 }
             })
     }
