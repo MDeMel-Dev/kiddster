@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_main">
+
+    <fragment
+        android:id="@+id/navigation_main"
+        android:name="com.example.kiddster.ui.home.MainFragment"
+        android:label="@string/main"
+        tools:layout="@layout/fragment_main" />
+
+    <fragment
+        android:id="@+id/navigation_genre"
+        android:name="com.example.kiddster.ui.dashboard.GenreFragment"
+        android:label="@string/genre"
+        tools:layout="@layout/fragment_genre" />
+
+    <fragment
+        android:id="@+id/navigation_info"
+        android:name="com.example.kiddster.ui.notifications.InfoFragment"
+        android:label="@string/info"
+        tools:layout="@layout/fragment_info" />
+</navigation>
