@@ -1,4 +1,4 @@
-package com.example.kiddster.ui.dashboard
+package com.example.kiddster.ui.info
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.kiddster.databinding.FragmentGenreBinding
+import com.example.kiddster.MainViewModel
+import com.example.kiddster.databinding.FragmentInfoBinding
 
-class GenreFragment : Fragment() {
+class InfoFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: GenreViewModel
-    private var _binding: FragmentGenreBinding? = null
+    private lateinit var notificationsViewModel: MainViewModel
+    private var _binding: FragmentInfoBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,14 +25,15 @@ class GenreFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(GenreViewModel::class.java)
+        notificationsViewModel =
+            ViewModelProvider(this.requireActivity(), com.example.kiddster.MainViewModel.Factory(requireActivity()!!.application))
+                .get(MainViewModel::class.java)
 
-        _binding = FragmentGenreBinding.inflate(inflater, container, false)
+        _binding = FragmentInfoBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textNotifications
+        notificationsViewModel.jokes_list.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_main"
-        android:name="com.example.kiddster.ui.home.MainFragment"
+        android:name="com.example.kiddster.ui.main.MainFragment"
         android:label="@string/main"
         tools:layout="@layout/fragment_main" />
 
     <fragment
         android:id="@+id/navigation_genre"
-        android:name="com.example.kiddster.ui.dashboard.GenreFragment"
+        android:name="com.example.kiddster.ui.types.GenreFragment"
         android:label="@string/genre"
         tools:layout="@layout/fragment_genre" />
 
     <fragment
         android:id="@+id/navigation_info"
-        android:name="com.example.kiddster.ui.notifications.InfoFragment"
+        android:name="com.example.kiddster.ui.info.InfoFragment"
         android:label="@string/info"
         tools:layout="@layout/fragment_info" />
 </navigation>
