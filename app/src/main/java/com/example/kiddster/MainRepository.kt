@@ -30,6 +30,7 @@ class MainRepository {
                 override fun onResponse(call: Call<List<Joke>>,
                                         response: Response<List<Joke>>) {
                     _responseStart.value = response.body()
+                    Log.d("mane", "Jokes list Downloaded")
 //                    _response.value = "${response.body()?.get(0)?.desc?.replace("\\n", (System.getProperty("line.separator") + "\n"))}"
 //                    _response.value?.let { Log.d("mane", it) }
                 }

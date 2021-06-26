@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.kiddster.MainViewModel
 import com.example.kiddster.databinding.FragmentMainBinding
+import com.example.kiddster.util.SwipeFunc
 
 class MainFragment : Fragment() {
 
@@ -36,6 +37,16 @@ class MainFragment : Fragment() {
         homeViewModel.mainJoke.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+       root.setOnTouchListener(object: SwipeFunc(requireActivity()) {
+            override fun onSwipeLeft() {
+                homeViewModel.previousJoke()
+            }
+            override fun onSwipeRight() {
+                homeViewModel.nextJoke()
+            }
+        })
+
         return root
     }
 

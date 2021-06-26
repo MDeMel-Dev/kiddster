@@ -13,6 +13,11 @@ class MainViewModel(application: Application) : ViewModel() {
 
     val jokesList = mainRepository.responseStart
 
+    /**
+     *
+     * mainJoke is a string
+     */
+
     private val _mainJoke = MutableLiveData<String>()
 
     val mainJoke: LiveData<String>
@@ -22,6 +27,8 @@ class MainViewModel(application: Application) : ViewModel() {
      *
      *
      */
+
+    private var nextIndex = 0
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -42,6 +49,7 @@ class MainViewModel(application: Application) : ViewModel() {
         viewModelScope.launch {
             try {
                 mainRepository.getJokes()
+                Log.d("mane", "Network request started")
                 while(jokesList.value.isNullOrEmpty()){
                 delay(5000)
                 }
@@ -58,7 +66,41 @@ class MainViewModel(application: Application) : ViewModel() {
 
     private fun displayJokeStart()
     {
-        _mainJoke.value = mainRepository.allJokes.random().desc.replace("\\n", (System.getProperty("line.separator") + "\n"))
+        var temp = mainRepository.allJokes.random()
+        _mainJoke.value = temp.desc.replace("\\n", (System.getProperty("line.separator") + "\n"))
+        nextIndex = temp.id.toInt()
+    }
+
+    fun nextJoke()
+    {
+        if(nextIndex < mainRepository.allJokes.size) {
+        var temp = mainRepository.allJokes.get(nextIndex)
+        _mainJoke.value = temp.desc.replace("\\n", (System.getProperty("line.separator") + "\n"))
+        nextIndex = temp.id.toInt()
+    }
+        else
+    {
+        nextIndex = 0
+        var temp = mainRepository.allJokes.get(nextIndex)
+        _mainJoke.value = temp.desc.replace("\\n", (System.getProperty("line.separator") + "\n"))
+        nextIndex = temp.id.toInt()
+    }
+    }
+
+    fun previousJoke()
+    {
+        if(nextIndex == 0) {
+            nextIndex = mainRepository.allJokes.size - 1
+            var temp = mainRepository.allJokes.get(nextIndex)
+            _mainJoke.value = temp.desc.replace("\\n", (System.getProperty("line.separator") + "\n"))
+            nextIndex = nextIndex - 1
+        }
+        else
+        {
+            var temp = mainRepository.allJokes.get(nextIndex)
+            _mainJoke.value = temp.desc.replace("\\n", (System.getProperty("line.separator") + "\n"))
+            nextIndex = nextIndex - 1
+        }
     }
 
     class Factory(val app: Application) : ViewModelProvider.Factory {
