@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.kiddster.MainActivity
 import com.example.kiddster.MainViewModel
 import com.example.kiddster.databinding.FragmentMainBinding
 
@@ -34,7 +33,7 @@ class MainFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
-        homeViewModel.jokes_list.observe(viewLifecycleOwner, Observer {
+        homeViewModel.mainJoke.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

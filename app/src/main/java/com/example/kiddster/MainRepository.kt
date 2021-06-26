@@ -13,30 +13,34 @@ import retrofit2.Response
 
 class MainRepository {
 
-    private val _response = MutableLiveData<String>()
+    private val _responseStart = MutableLiveData<List<Joke>>()
 
 
-    val response: LiveData<String>
-        get() = _response
+    val responseStart: LiveData<List<Joke>>
+        get() = _responseStart
+
+    val allJokes : Array<Joke> by lazy {responseStart.value!!.toTypedArray()}
 
 
     fun getJokes() {
-        _response.value = "Jokes list!"
+
 
         KiddsterApi.retrofitService.getJokes().enqueue(
             object: Callback<List<Joke>>{
                 override fun onResponse(call: Call<List<Joke>>,
                                         response: Response<List<Joke>>) {
-//                    _response.value = response.body()
-                    _response.value = "${response.body()?.get(0)?.desc?.replace("\\n", (System.getProperty("line.separator") + "\n"))}"
-                    _response.value?.let { Log.d("mane", it) }
+                    _responseStart.value = response.body()
+//                    _response.value = "${response.body()?.get(0)?.desc?.replace("\\n", (System.getProperty("line.separator") + "\n"))}"
+//                    _response.value?.let { Log.d("mane", it) }
                 }
 
                 override fun onFailure(call: Call<List<Joke>>, t: Throwable) {
-                    _response.value = "Failure: " + t.message
-                    _response.value?.let { Log.d("mane", it) }
+//                    _response.value = "Failure: " + t.message
+//                    _response.value?.let { Log.d("mane", it) }
                 }
             })
+
+
     }
 
 

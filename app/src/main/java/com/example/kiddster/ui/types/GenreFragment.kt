@@ -33,7 +33,7 @@ class GenreFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.jokes_list.observe(viewLifecycleOwner, Observer {
+        dashboardViewModel.mainJoke.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

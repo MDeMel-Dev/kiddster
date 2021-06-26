@@ -33,7 +33,7 @@ class InfoFragment : Fragment() {
         val root: View = binding.root
 
         val textView: TextView = binding.textNotifications
-        notificationsViewModel.jokes_list.observe(viewLifecycleOwner, Observer {
+        notificationsViewModel.mainJoke.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
