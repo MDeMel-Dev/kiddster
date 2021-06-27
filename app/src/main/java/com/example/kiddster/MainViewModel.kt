@@ -3,6 +3,7 @@ package com.example.kiddster
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import com.example.kiddster.Network.Joke
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.IOException
@@ -12,6 +13,8 @@ class MainViewModel(application: Application) : ViewModel() {
     private val mainRepository = MainRepository()
 
     val jokesList = mainRepository.responseStart
+
+    val allJokes : Array<Joke> by lazy {mainRepository.allJokes}
 
     /**
      *

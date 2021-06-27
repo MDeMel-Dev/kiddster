@@ -1,5 +1,6 @@
 package com.example.kiddster.ui.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.kiddster.MainViewModel
 import com.example.kiddster.databinding.FragmentMainBinding
 import com.example.kiddster.util.SwipeFunc
+import com.example.kiddster.util.WordPrint
 
 class MainFragment : Fragment() {
 
@@ -21,6 +23,7 @@ class MainFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -33,9 +36,11 @@ class MainFragment : Fragment() {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textHome
+        val textView: WordPrint = binding.textHome
         homeViewModel.mainJoke.observe(viewLifecycleOwner, Observer {
             textView.text = it
+            textView.setCharacterDelay(50);
+            textView.animateText(textView.text);
         })
 
        root.setOnTouchListener(object: SwipeFunc(requireActivity()) {

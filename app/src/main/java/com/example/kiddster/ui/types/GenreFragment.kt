@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.kiddster.MainViewModel
 import com.example.kiddster.databinding.FragmentGenreBinding
+import com.example.kiddster.ui.recyclerview.DataAdapter
 
 class GenreFragment : Fragment() {
 
@@ -36,6 +37,16 @@ class GenreFragment : Fragment() {
         dashboardViewModel.mainJoke.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+        val adapter = DataAdapter()
+        binding.typeList.adapter = adapter
+
+        dashboardViewModel.jokesList.observe(viewLifecycleOwner, Observer {
+            adapter.data = dashboardViewModel.allJokes.map { it.jktype }.toTypedArray().distinct() as ArrayList<String>
+            binding.typeList.adapter = adapter
+        })
+
+
         return root
     }
 
