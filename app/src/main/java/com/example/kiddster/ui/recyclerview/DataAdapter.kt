@@ -51,7 +51,7 @@ class DataAdapter(private val jokeClickListener: (Joke) -> Unit , private val ty
 
         fun bind(position: Int) {
             val joke = dataunits[position]
-            idtext.text = joke.id
+            idtext.text = (position+1).toString()
             desctext.text = joke.desc.substring(0,25) + "....."
 
             itemView.setOnClickListener { jokeClickListener(dataunits[position]) }

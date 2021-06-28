@@ -6,4 +6,13 @@
     <string name="info">Info</string>
     <string name="genre">Genre</string>
     <string name="main">Main</string>
+    <string name="kiddster_app_stats">Kiddster App Stats</string>
+    <string name="creator">Creator</string>
+    <string name="current_jokes">Current Jokes :</string>
+    <string name="current_types">Current Types :</string>
+    <string name="upgrades">-- Optional user logins\n\n-- User jokes upload feature\n\n-- Themes - (current version only optimized for "day" theme)\n\n-- Share jokes on social media option</string>
+    <string name="home">Home</string>
+    <string name="profile_link"><a href="https://mnc22.com">Profile-Link</a></string>
+    <string name="kiddster_api">Kiddster Rest Api</string>
+    <string name="loading">loading</string>
 </resources>

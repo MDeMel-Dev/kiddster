@@ -29,7 +29,6 @@ class GenreFragment : Fragment() {
     lateinit var textView: TextView
 
     private val onJokeClickListener: (Joke) -> Unit = { item ->
-        Toast.makeText(this.context, "Item clicked: ${item.id} ", Toast.LENGTH_SHORT).show()
         dashboardViewModel.setJoke(item.id)
         navigateMain()
     }
@@ -38,7 +37,6 @@ class GenreFragment : Fragment() {
         changeTitle()
         adapter.dataunits = dashboardViewModel.allJokes.filter{it.jktype.equals(item)}.toCollection(ArrayList())
         binding.typeList.adapter = adapter
-        Toast.makeText(this.context, "Item clicked: ${item} ", Toast.LENGTH_SHORT).show()
     }
 
     val adapter = DataAdapter(onJokeClickListener , onTypeClickListener)

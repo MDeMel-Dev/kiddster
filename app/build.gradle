@@ -53,4 +53,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
     implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
     implementation "com.squareup.moshi:moshi-kotlin:$version_moshi"
+    implementation "pl.droidsonroids.gif:android-gif-drawable:1.2.18"
+
 }
