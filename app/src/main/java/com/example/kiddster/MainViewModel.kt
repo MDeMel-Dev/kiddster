@@ -74,6 +74,13 @@ class MainViewModel(application: Application) : ViewModel() {
         nextIndex = temp.id.toInt()
     }
 
+    fun setJoke(id : String)
+    {
+            var temp = mainRepository.allJokes.get(id.toInt()-1)
+            _mainJoke.value = temp.desc.replace("\\n", (System.getProperty("line.separator") + "\n"))
+            nextIndex = temp.id.toInt()
+        }
+
     fun nextJoke()
     {
         if(nextIndex < mainRepository.allJokes.size) {

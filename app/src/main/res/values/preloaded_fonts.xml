@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
         <item>@font/aclonica</item>
+        <item>@font/architects_daughter</item>
+        <item>@font/just_me_again_down_here</item>
+        <item>@font/love_ya_like_a_sister</item>
     </array>
 </resources>

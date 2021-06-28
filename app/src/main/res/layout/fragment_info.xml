@@ -6,6 +6,320 @@
     android:layout_height="match_parent"
     tools:context=".ui.info.InfoFragment">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewback"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:background="@mipmap/card_border"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="375dp"
+            android:layout_height="152dp"
+            android:background="@mipmap/card_border">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="serif"
+                android:text="Flip Back"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:cornerRadius="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="serif"
+                android:text="Income"
+                android:textColor="#6200EA"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="#64DD17" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="56dp"
+                android:layout_height="88dp"
+                android:layout_marginStart="1dp"
+                app:layout_constraintStart_toEndOf="@+id/button4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="serif"
+                android:text="Expense"
+                android:textColor="#6200EA"
+                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="#D50000" />
+
+            <EditText
+                android:id="@+id/editTextNumberDecimal"
+                android:layout_width="214dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="28dp"
+                android:cursorVisible="true"
+                android:ellipsize="none"
+                android:ems="10"
+                android:fontFamily="serif"
+                android:hint="$"
+                android:inputType="numberDecimal"
+                android:paddingStart="13dp"
+                android:textColor="#6200EA"
+                app:layout_constraintStart_toStartOf="@+id/button4"
+                app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+            <Button
+                android:id="@+id/menu_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewfront"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        android:background="@mipmap/card_border"
+        android:visibility="visible"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="372dp"
+            android:layout_height="match_parent"
+            android:background="@mipmap/card_border">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="179dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif"
+                android:text="Total Liquid Assets"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="259dp"
+                android:layout_height="73dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="serif"
+                android:text="$ 245.00"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonfront"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="serif"
+                android:text="+ / -"
+                android:textSize="20sp"
+                app:cornerRadius="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewback2"
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardViewfront">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonback2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="serif"
+                android:text="Flip Back"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                app:cornerRadius="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/button42"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="serif"
+                android:text="Income"
+                android:textColor="#6200EA"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="#64DD17" />
+
+            <ImageView
+                android:id="@+id/imageView42"
+                android:layout_width="56dp"
+                android:layout_height="88dp"
+                android:layout_marginStart="1dp"
+                app:layout_constraintStart_toEndOf="@+id/button42"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button52"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:fontFamily="serif"
+                android:text="Expense"
+                android:textColor="#6200EA"
+                app:layout_constraintStart_toEndOf="@+id/imageView42"
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="#D50000" />
+
+            <EditText
+                android:id="@+id/editTextNumberDecimal2"
+                android:layout_width="214dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="28dp"
+                android:cursorVisible="true"
+                android:ellipsize="none"
+                android:ems="10"
+                android:fontFamily="serif"
+                android:hint="$"
+                android:inputType="numberDecimal"
+                android:paddingStart="13dp"
+                android:textColor="#6200EA"
+                app:layout_constraintStart_toStartOf="@+id/button42"
+                app:layout_constraintTop_toBottomOf="@+id/button42" />
+
+            <Button
+                android:id="@+id/menu_button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Category"
+                app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal2"
+                app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewfront2"
+        android:layout_width="match_parent"
+        android:layout_height="235dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="visible"
+        app:cardElevation="23dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardViewfront">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="179dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="serif"
+                android:text="Total Liquid Assets"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView42"
+                android:layout_width="259dp"
+                android:layout_height="73dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="serif"
+                android:text="$ 245.00"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonfront2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="serif"
+                android:text="+ / -"
+                android:textSize="20sp"
+                app:cornerRadius="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/text_notifications"
         android:layout_width="match_parent"
@@ -18,6 +332,8 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
 </androidx.constraintlayout.widget.ConstraintLayout>

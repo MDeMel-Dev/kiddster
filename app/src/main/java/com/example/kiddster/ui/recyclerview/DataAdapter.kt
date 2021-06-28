@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kiddster.Network.Joke
 import com.example.kiddster.R
 
-class DataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
+class DataAdapter(private val jokeClickListener: (Joke) -> Unit , private val typeClickListener: (String) -> Unit) : RecyclerView.Adapter<DataAdapter.ViewHolder>()  {
 
     var content = "type"
 
@@ -34,26 +34,31 @@ class DataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
     }
 
     private inner class TypeViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
+        DataAdapter.ViewHolder(itemView) {
         var typetext: TextView = itemView.findViewById(R.id.type)
         fun bind(position: Int) {
             val typestring = data[position]
             typetext.text = typestring
+
+            itemView.setOnClickListener { typeClickListener(data[position]) }
         }
     }
 
     private inner class UnitViewHolder(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
+        DataAdapter.ViewHolder(itemView) {
         var idtext: TextView = itemView.findViewById(R.id.jk_id)
         var desctext: TextView = itemView.findViewById(R.id.jk_desc)
+
         fun bind(position: Int) {
             val joke = dataunits[position]
             idtext.text = joke.id
-            desctext.text = joke.desc
+            desctext.text = joke.desc.substring(0,25) + "....."
+
+            itemView.setOnClickListener { jokeClickListener(dataunits[position]) }
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataAdapter.ViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
 
@@ -73,7 +78,7 @@ class DataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
     }
 
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: DataAdapter.ViewHolder, position: Int) {
 
         if (content.equals("type")) {
             (holder as TypeViewHolder).bind(position)
@@ -82,6 +87,6 @@ class DataAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
         }
     }
 
-
+    open class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
 }

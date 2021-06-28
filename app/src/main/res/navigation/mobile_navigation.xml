@@ -15,7 +15,12 @@
         android:id="@+id/navigation_genre"
         android:name="com.example.kiddster.ui.types.GenreFragment"
         android:label="@string/genre"
-        tools:layout="@layout/fragment_genre" />
+        tools:layout="@layout/fragment_genre" >
+        <action
+            android:id="@+id/action_navigation_genre_to_navigation_main"
+            app:destination="@id/navigation_main"
+            app:enterAnim="@android:anim/slide_in_left" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_info"
